@@ -1,11 +1,15 @@
-module.exports = function(sequelize, DataTypes) {
-  var toDoDB = sequelize.define("toDoDB", {
-    text: DataTypes.STRING,
-    complete: {
+module.exports = function (sequelize, DataTypes) {
+  var toDo = sequelize.define("toDo", {
+    description: DataTypes.TEXT,
+    is_outdoor: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
-      },
-    description: DataTypes.TEXT
+      allowNull: false
+    },
+    completion_status: {
+      defaultValue: 'notDone',
+      type: DataTypes.TEXT
+    },
+    createdBy: DataTypes.STRING
   });
-  return toDoDB;
+  return toDo;
 };
