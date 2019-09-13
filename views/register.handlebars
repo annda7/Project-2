@@ -4,15 +4,45 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Register an Account!</h5>
-          <p>
-            <strong>First Name</strong>: <input type="text" name="firstName"></p>
-          <p>
-            <strong>Last Name</strong> <input type="text" name="lastName"></p>
-          <p>
-            <strong>Username:</strong>: <input type="text" name="username"></p>
-          <p>
-            <strong>Password</strong> <input type="text" name="password"></p>
-            <a href="/">Register</a> 
+          <form action="/register/new" method="POST">
+            <div>
+              <label for="firstName"> First Name</label>
+              <input
+                type="firstName"
+                id="firstName"
+                name="firstName"
+                placeholder="First Name"
+                />
+            </div>
+            <div>
+              <label for="lastName"> Last Name</label>
+              <input
+                type="lastName"
+                id="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                />
+            </div>
+            <div>
+              <label for="username"> Username</label>
+              <input
+                type="username"
+                id="username"
+                name="username"
+                placeholder="Username"
+                />
+            </div>
+            <div>
+              <label for="password"> Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                />
+            </div>
+            <button type="submit">Register</button>
+            </form>
             {{!-- Code here that will make a post request to the database with the user account details to create an account. --}}
         </div>
       </div>

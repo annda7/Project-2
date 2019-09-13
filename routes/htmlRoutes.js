@@ -1,10 +1,14 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load login page
+  // Load home page
   app.get("/", function(req, res) {
     res.render("login");
   });
+
+    app.get("/login", function(req, res) {
+    res.render("login");
+  });  
 
   // Load example page and pass in an example by id
   app.get("/register", function(req, res) {
