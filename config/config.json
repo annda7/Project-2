@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "passport",
+    "password": "Mysql.2019",
+    "database": "toDoDB",
     "host": "localhost",
     "dialect": "mysql"
   },
