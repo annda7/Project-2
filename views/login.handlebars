@@ -4,12 +4,25 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Sign in!</h5>
-          <p>
-            <strong>Username</strong>: <input type="text" name="username"> </p>
-          <p>
-          <p>
-            <strong>Password</strong>: <input type="text" name="password"> </p>
-            <a href="/">Login</a>
+          <form action="/login/check" method="POST">
+            <div>
+              <label for="username">Username</label>
+              <input
+              type="username"
+              id="username"
+              name="username"
+              />
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input
+              type="password"
+              id="password"
+              name="password"
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
         </div>
       </div>
     </div>
