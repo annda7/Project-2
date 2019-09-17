@@ -4,13 +4,12 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Sign in!</h5>
-          <form action="/login/check" method="POST">
+          <form class="login">
             <div>
               <label for="username">Username</label>
               <input
               type="username"
               id="username"
-              name="username"
               />
             </div>
             <div>
@@ -18,7 +17,6 @@
               <input
               type="password"
               id="password"
-              name="password"
               />
             </div>
             <button type="submit">Login</button>
@@ -28,3 +26,6 @@
     </div>
   </div>
 </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/index.js"></script>

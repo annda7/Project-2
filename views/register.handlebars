@@ -4,13 +4,12 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Register an Account!</h5>
-          <form action="/register/new" method="POST">
+          <form class="register">
             <div>
               <label for="firstName"> First Name</label>
               <input
                 type="firstName"
                 id="firstName"
-                name="firstName"
                 placeholder="First Name"
                 />
             </div>
@@ -19,7 +18,6 @@
               <input
                 type="lastName"
                 id="lastName"
-                name="lastName"
                 placeholder="Last Name"
                 />
             </div>
@@ -28,7 +26,6 @@
               <input
                 type="username"
                 id="username"
-                name="username"
                 placeholder="Username"
                 />
             </div>
@@ -37,15 +34,17 @@
               <input
                 type="password"
                 id="password"
-                name="password"
                 placeholder="Password"
                 />
             </div>
             <button type="submit">Register</button>
             </form>
-            {{!-- Code here that will make a post request to the database with the user account details to create an account. --}}
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
