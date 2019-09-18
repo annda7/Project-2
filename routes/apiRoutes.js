@@ -1,4 +1,5 @@
 var db = require("../models");
+var axios = require('axios');
 const passport = require('../config/passport');
 
 module.exports = function (app) {
@@ -50,15 +51,18 @@ module.exports = function (app) {
 
 
 //API call to DarkSky weather API
-app.get('api/darksky', function(req, res) {
-  console.log(req)
-  var queryURL = "https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/" + req.body.latitude + "," + req.body.longitude
-  fetch(queryURL)
-  .then(function(response) {
-      return response.json()
-  })
+app.get('/api/darksky/:lat/:long', function(req, res) {
+  console.log(req.params)
+  'https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/'
+  var queryURL = "https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/" + req.params.lat + "," + req.params.long;
+  console.log(queryURL)
+  axios.get(queryURL)
+  // .then(function(response) {
+  //     return response.json()
+  // })
   .then(function(result) {
-      res.json(result)
+    console.log(result);
+      res.json(result.data)
   })
 });
 

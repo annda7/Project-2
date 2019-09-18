@@ -187,13 +187,22 @@ function loginUser(username, password) {
 
 function getWeather(lat, long) {
 console.log(lat, long)
+//We need to ping the backend
+axios.get('/api/darksky/' + lat + '/' + long)
+.then(function(data){
+  console.log(data);
+})
+.catch(function(err){
+  console.log(err);
+});
 }
 
 
-  navigator.geolocation.getCurrentPosition(function(err, position) {
+  navigator.geolocation.getCurrentPosition(function(position, err) {
    if (err) {
      throw err
-   } console.log(navigator)
+   } 
+   console.log(navigator)
     getWeather(position.coords.latitude, position.coords.longitude)
   });
 // // Add event listeners to the submit and delete buttons
