@@ -2,33 +2,19 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 const session = require('express-session')
-const passport = require('passport');
-
+const passport = require('./config/passport');
+var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
+// Creating express app and configuring middleware needed for authentication
 var app = express();
-//Passport config
-require('./config/passport')(passport);
-var PORT = process.env.PORT || 3000;
-
-
-//Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
-// Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-
-
-
-//Express Session
-app.use(session({
-  secret:'secret',
-  resave: true,
-  saveUninitialized: true
-}));
-
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -63,3 +49,5 @@ db.sequelize.sync({force: true}).then(function() {
 });
 
 module.exports = app;
+
+

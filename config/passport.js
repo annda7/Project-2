@@ -1,42 +1,49 @@
-const LocalStrategy = require('passport-local').Strategy;
-const db = require("../models");
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
+var db = require("../models");
 
-module.exports = function(passport) {
-    passport.use(
-        new LocalStrategy({usernameField: 'username'}, function(username,password,done){
-            //Match user
-            db.Users.findOne({
-                where:{
-                    username:username}})
-            .then(function(user){
-                console.log('!!!!!!!!!!!!!!!' + user)
-                if(!user){
-                    return done(null, false, {message: 'That username is not registered'})
-                }
-
-                //Match password
-                bcrypt.compare(password, user.password,function(err,isMatch){
-                    if (err) throw err;
-                    if(isMatch){
-                        return done(null,user);
-                    }else{
-                        return done(null,false,{message:'Password Incorrect'})
-                    }
-                })
-            })
-        })
-    );
-    passport.serializeUser(function(user, done){
-        console.log("######################" + user.id)
-        done(null,user.id);
-    });
-    
-    passport.deserializeUser(function(id,done){
-        User.findByID(id, function(err,user){
-            done(err,user);
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
+passport.use(new LocalStrategy(
+  // Our user will sign in using an email, rather than a "username"
+  {
+    usernameField: "username"
+  },
+  function(username, password, done) {
+    // When a user tries to sign in this code runs
+    db.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function(dbUser) {
+      // If there's no user with the given username
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect username."
         });
+      }
+      // If there is a user with the given username, but the password the user gives us is incorrect
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbUser);
     });
-}
+  }
+));
+
+// In order to help keep authentication state across HTTP requests,
+// Sequelize needs to serialize and deserialize the user
+// Just consider this part boilerplate needed to make it all work
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;

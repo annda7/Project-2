@@ -4,48 +4,31 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Register an Account!</h5>
-          <form action="/register/new" method="POST">
+          <form class="register">
             <div>
               <label for="firstName"> First Name</label>
-              <input
-                type="firstName"
-                id="firstName"
-                name="firstName"
-                placeholder="First Name"
-                />
+              <input type="firstName" id="firstName" placeholder="First Name" />
             </div>
             <div>
               <label for="lastName"> Last Name</label>
-              <input
-                type="lastName"
-                id="lastName"
-                name="lastName"
-                placeholder="Last Name"
-                />
+              <input type="lastName" id="lastName" placeholder="Last Name" />
             </div>
             <div>
-              <label for="username">  Username</label>
-              <input
-                type="username"
-                id="username"
-                name="username"
-                placeholder="Username"
-                />
+              <label for="username"> Username</label>
+              <input type="username" id="username" placeholder="Username" />
             </div>
             <div>
-              <label for="password">  Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                />
+              <label for="password"> Password</label>
+              <input type="password" id="password" placeholder="Password" />
             </div>
             <button type="submit">Register</button>
-            </form>
-            {{!-- Code here that will make a post request to the database with the user account details to create an account. --}}
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
