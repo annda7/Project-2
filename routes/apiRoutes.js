@@ -27,4 +27,20 @@ module.exports = function (app) {
       failureRedirect: '/login'
     })(req,res,next);
   });
+
+
+
+//API call to DarkSky weather API
+app.get('api/darksky', function(req, res) {
+  console.log(req)
+  var queryURL = "https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/" + req.body.latitude + "," + req.body.longitude
+  fetch(queryURL)
+  .then(function(response) {
+      return response.json()
+  })
+  .then(function(result) {
+      res.json(result)
+  })
+});
+
 };
