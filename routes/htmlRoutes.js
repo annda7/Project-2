@@ -1,27 +1,34 @@
-var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load home page
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
+    if (req.user) {
+      res.redirect("/home")
+    }
     res.render("landing");
   });
 
-    app.get("/login", function(req, res) {
+  app.get("/login", function (req, res) {
+    if (req.user) {
+      res.redirect("/home")
+    }
     res.render("login");
   });
 
-  // Load example page and pass in an example by id
-  app.get("/register", function(req, res) {
+  app.get("/register", function (req, res) {
+    if (req.user) {
+      res.redirect("/home")
+    }
     res.render("register");
   });
 
-  // Load example page and pass in an example by id
-  app.get("/home", function(req, res) {
+  app.get("/home", isAuthenticated, function (req, res) {
     res.render("index");
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };
