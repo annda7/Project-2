@@ -1,3 +1,4 @@
+
 // Get references to page elements
 var registerForm = $("form.register");
 var firstName = $("input#firstName");
@@ -177,6 +178,24 @@ function loginUser(username, password) {
 //   });
 // };
 
+// Add event listeners to the submit and delete buttons
+// $submitBtn.on("click", handleFormSubmit);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+//Frontend call to API function
+
+function getWeather(lat, long) {
+console.log(lat, long)
+}
+
+
+  navigator.geolocation.getCurrentPosition(function(err, position) {
+   if (err) {
+     throw err
+   } console.log(navigator)
+    getWeather(position.coords.latitude, position.coords.longitude)
+  });
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
