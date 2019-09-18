@@ -22,20 +22,25 @@ registerForm.on("submit", function (event) {
     return;
   }
   // If we have an email and password, run the signUpUser function
-  signUpUser(userDataRegister.first, userDataRegister.last, userDataRegister.username, userDataRegister.password);
+  signUpUser(
+    userDataRegister.first,
+    userDataRegister.last,
+    userDataRegister.username,
+    userDataRegister.password
+  );
   firstName.val("");
   lastName.val("");
   username.val("");
   password.val("");
 });
 
-function signUpUser(first,last,username,password){
+function signUpUser(first, last, username, password) {
   $.post("/api/signup", {
     firstname: first,
     lastname: last,
     username: username,
     password: password
-  }).then(function(data){
+  }).then(function (data) {
     window.location.replace("/home")
   }).catch(handleLoginErr)
 }
@@ -45,37 +50,42 @@ function handleLoginErr(err) {
   $("#alert").fadeIn(500);
 }
 
-  // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", function(event) {
-    event.preventDefault();
-    var userDataLogin = {
-      username: loginUsername.val().trim(),
-      password: loginPassword.val().trim()
-    };
+// When the form is submitted, we validate there's an email and password entered
+loginForm.on("submit", function (event) {
+  event.preventDefault();
+  var userDataLogin = {
+    username: loginUsername.val().trim(),
+    password: loginPassword.val().trim()
+  };
 
-    if (!userDataLogin.username || !userDataLogin.password) {
-      return;
-    }
+  if (!userDataLogin.username || !userDataLogin.password) {
+    return;
+  }
 
-    // If we have an username and password we run the loginUser function and clear the form
-    loginUser(userDataLogin.username, userDataLogin.password);
-    loginUsername.val("");
-    loginPassword.val("");
+  // If we have an username and password we run the loginUser function and clear the form
+  loginUser(userDataLogin.username, userDataLogin.password);
+  loginUsername.val("");
+  loginPassword.val("");
+});
+
+// loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+function loginUser(username, password) {
+  $.post("/api/login", {
+    username: username,
+    password: password
+  })
+    .then(function () {
+      window.location.replace("/home");
+      // If there's an error, log the error
+    }).catch(function (err) {
+      console.log(err);
+    })
+}
+
+  $.get("/api/user_data").then(function(data) {
+    console.log(data)
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(username, password) {
-    $.post("/api/login", {
-      username: username,
-      password: password
-    })
-      .then(function() {
-        window.location.replace("/home");
-        // If there's an error, log the error
-      }).catch(function(err){
-        console.log(err);
-      })
-  }
 
 // // The API object contains methods for each kind of request we'll make
 // var API = {

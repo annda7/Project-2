@@ -44,6 +44,6 @@ module.exports = function (app) {
         first_name: req.user.firstname,
         last_name: req.user.lastname,
       });
-    }
+    };
   });
 };
