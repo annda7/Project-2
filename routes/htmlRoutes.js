@@ -4,27 +4,27 @@ module.exports = function (app) {
   // Load home page
   app.get("/", function (req, res) {
     if (req.user) {
-      res.redirect("/home")
+      return res.redirect("/home")
     }
     res.render("landing");
   });
 
   app.get("/login", function (req, res) {
     if (req.user) {
-      res.redirect("/home")
+      return res.redirect("/home");
     }
     res.render("login");
   });
 
   app.get("/register", function (req, res) {
     if (req.user) {
-      res.redirect("/home")
+      return res.redirect("/home")
     }
     res.render("register");
   });
 
   app.get("/home", isAuthenticated, function (req, res) {
-    res.render("index");
+    return res.render("index");
   });
 
   // Render 404 page for any unmatched routes
