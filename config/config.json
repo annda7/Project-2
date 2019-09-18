@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "tododb",
+    "database": "toDoDB",
     "host": "localhost",
     "dialect": "mysql"
   },
