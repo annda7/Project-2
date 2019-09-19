@@ -83,10 +83,18 @@ function loginUser(username, password) {
     })
 }
 
-  $.get("/api/user_data").then(function(data) {
-    console.log(data)
-  });
+$.get("/api/user_data").then(function (data) {
+  console.log(data)
+});
 
+//Logout Function
+
+$("#logoutButton").on("click", function () {
+  $.get("/logout").then(function (data) {
+    console.log("Logged Out")
+    window.location.replace("/")
+  })
+})
 
 // // The API object contains methods for each kind of request we'll make
 // var API = {
@@ -183,28 +191,30 @@ function loginUser(username, password) {
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
+
+
 //Frontend call to API function
 
 function getWeather(lat, long) {
-console.log(lat, long)
-//We need to ping the backend
-axios.get('/api/darksky/' + lat + '/' + long)
-.then(function(data){
-  console.log(data);
-})
-.catch(function(err){
-  console.log(err);
-});
+  console.log(lat, long)
+  //We need to ping the backend
+  axios.get('/api/darksky/' + lat + '/' + long)
+    .then(function (data) {
+      console.log(data);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 
-  navigator.geolocation.getCurrentPosition(function(position, err) {
-   if (err) {
-     throw err
-   } 
-   console.log(navigator)
-    getWeather(position.coords.latitude, position.coords.longitude)
-  });
+navigator.geolocation.getCurrentPosition(function (position, err) {
+  if (err) {
+    throw err
+  }
+  console.log(navigator)
+  getWeather(position.coords.latitude, position.coords.longitude)
+});
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
