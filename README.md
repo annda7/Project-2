@@ -1,9 +1,5 @@
 ## Project 2 Do <h2>
 
-![Logo](./public/images/Project.png)
-
-
-
 The main idea behind Project 2 is to create a kanban web application for tasks and things to do with your friends or family based on the weather for the day. 
 
 The user will have to register in order to use the web application. 
@@ -13,11 +9,8 @@ The user will have to register in order to use the web application.
 
 ![Login](./public/images/login.png)
 
-![HomePage](./public/images/homepage.png)
-
 
 # User then will be able to:
-
 
 1. View all tasks.
 2. Create a new task.
@@ -30,13 +23,13 @@ The user will have to register in order to use the web application.
 
 ## Snapshot of our web app below!
 
-![Landing](./public/images/landing.png)
+![Landing](./public/images/homepage.png)
 
 
 
 # Technologies Utilized
 
-* ZURB Foundation
+* ZURB Foundation ???
 * Bootstraps
 * DarkSky-API
 * Sequelize
@@ -49,6 +42,7 @@ The user will have to register in order to use the web application.
 
 
 
-*Dev Team*
+# *Dev Team*
+
 UW Coding Bootcamp 2019
 Saranda Sharpe, Kevin Joun, Eddie DePaolo, Angelo DePaolo, Meika Prince
