@@ -60,13 +60,12 @@
         </div>
         <div class="small-12 columns">
 
-          <ul class="dropdown menu" data-dropdown-menu>
+          <ul class="vertical menu accordion-menu" data-accordion-menu>
             <li>
-              <a href="#">Category!</a>
-              <ul class="menu">
-                <li><a href="#">Indoor</a></li>
+              <a href="#">Category</a>
+              <ul class="menu vertical nested">
                 <li><a href="#">Outdoor</a></li>
-                <!-- ... -->
+                <li><a href="#">Indoor</a></li>
               </ul>
             </li>
           </ul>
@@ -93,7 +92,14 @@
       <div class="column">
         <div class="callout">
           <div>
-            <p>To Do</p>
+
+            <ol data-draggable="target">
+              <p>To Do</p>
+              <li data-draggable="item">Item 0</li>
+              <li data-draggable="item">Item 1</li>
+              <li data-draggable="item">Item 2</li>
+              <li data-draggable="item">Item 3</li>
+            </ol>
           </div>
         </div>
 
@@ -101,35 +107,44 @@
 
       <div class="column">
         <div class="callout">
-          <p>In Progress </p>
+
+          <ol data-draggable="target">
+            <p>In Progress </p>
+
+          </ol>
 
         </div>
       </div>
+
+
       <div class="column">
         <div class="callout">
-          <p>Done</p>
+
+          <ol data-draggable="target">
+            <p>Done</p>
+          </ol>
 
         </div>
       </div>
-      ​
-      ​
-    </div>
-  </div>
-  ​
-  <footer>
-    <div class="row expanded callout secondary">
-      <div class="small-12 large-1 columns">
-        <p class="lead"></p>
-        <ul class="menu vertical">
 
-      </div>
-      ​
-    </div>
-    <div class="row">
-  </footer>
-  <script>
-    $(document).foundation();
-  </script>
-    <script src="/js/index.js"></script>
 
-</div>
+
+      ​
+      <footer>
+        <div class="row expanded callout secondary">
+          <div class="small-12 large-1 columns">
+            <p class="lead"></p>
+            <ul class="menu vertical">
+
+          </div>
+          ​
+        </div>
+        <div class="row">
+      </footer>
+      <script>
+        $(document).foundation();
+      </script>
+      <script src="js/tacoplz.js"></script>
+      <script src="/js/index.js"></script>
+
+    </div>
