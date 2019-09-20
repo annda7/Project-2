@@ -83,10 +83,18 @@ function loginUser(username, password) {
     })
 }
 
-  $.get("/api/user_data").then(function(data) {
-    console.log(data)
-  });
+$.get("/api/user_data").then(function (data) {
+  console.log(data)
+});
 
+//Logout Function
+
+$("#logoutButton").on("click", function () {
+  $.get("/logout").then(function (data) {
+    console.log("Logged Out")
+    window.location.replace("/")
+  })
+})
 
 // // The API object contains methods for each kind of request we'll make
 // var API = {
@@ -181,6 +189,8 @@ function loginUser(username, password) {
 // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
 
 
 //Frontend call to API function
