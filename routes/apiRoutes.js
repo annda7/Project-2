@@ -4,6 +4,16 @@ const passport = require('../config/passport');
 
 module.exports = function (app) {
 
+  app.post('/api/tasks', function(req,res){
+    db.toDo.create({
+      description: req.body.description,
+      is_outdoor: req.body.is_outdoor,
+      createdBy: req.user.username
+    }).then(function(results){
+      res.end()
+    })
+  })
+
   //when a login request is made, we use passport to authenticate, if successful, we send back a json of the users data.
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
@@ -52,16 +62,16 @@ module.exports = function (app) {
 
 //API call to DarkSky weather API
 app.get('/api/darksky/:lat/:long', function(req, res) {
-  console.log(req.params)
+  // console.log(req.params)
   'https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/'
   var queryURL = "https://api.darksky.net/forecast/234665da1df213a24db7321a2b03d25b/" + req.params.lat + "," + req.params.long;
-  console.log(queryURL)
+  // console.log(queryURL)
   axios.get(queryURL)
   // .then(function(response) {
   //     return response.json()
   // })
   .then(function(result) {
-    console.log(result);
+    // console.log(result);
       res.json(result.data)
   })
 });

@@ -1,4 +1,5 @@
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+var db = require("../models");
 
 module.exports = function (app) {
   // Load home page
@@ -24,8 +25,20 @@ module.exports = function (app) {
   });
 
   app.get("/home", isAuthenticated, function (req, res) {
-    console.log(req.user);
-    return res.render("index", {user: req.user});
+    //DB query to look into the todo table and get the to do items where createby = req.user.username
+    db.toDo
+      .findAll({
+        where: {
+          createdBy: req.user.username
+        }
+      })
+      .then(function(results) {
+        console.log(results);
+        res.render("index", {
+          user: req.user,
+          todo: results
+        });
+      });
   });
 
   // Render 404 page for any unmatched routes
