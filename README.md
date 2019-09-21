@@ -29,8 +29,7 @@ The user will have to register in order to use the web application.
 
 # Technologies Utilized
 
-* ZURB Foundation ???
-* Bootstraps
+* Bootstrap
 * DarkSky-API
 * Sequelize
 * Passport - NPM Package

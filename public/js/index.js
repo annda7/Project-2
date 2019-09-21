@@ -194,14 +194,24 @@ $("#logoutButton").on("click", function () {
 
 
 //Frontend call to API function
-
+$(document).ready( function() {
+  navigator.geolocation.getCurrentPosition(function(position, err) {
+    if (err) {
+      throw err
+    } 
+    console.log(navigator)
+    getWeather(position.coords.latitude, position.coords.longitude);
+    
+    //  $("#darksky2").html("It's Sunny!!!!!!");
+   });
+});
 function getWeather(lat, long) {
   console.log(lat, long)
   //We need to ping the backend
   axios.get('/api/darksky/' + lat + '/' + long)
     .then(function (result) {
-      console.log(result.data.daily.icon);
-      switch (result.data.daily.icon) {
+      console.log(result.data.currently.icon);
+      switch (result.data.currently.icon) {
         case "clear-day":
           $("#weatherDiv");
           break;
@@ -233,13 +243,7 @@ function getWeather(lat, long) {
 }
 
 
-navigator.geolocation.getCurrentPosition(function (position, err) {
-  if (err) {
-    throw err
-  }
-  console.log(navigator)
-  getWeather(position.coords.latitude, position.coords.longitude)
-});
+ 
 // // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);

@@ -1,135 +1,134 @@
 ​
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="/js/index.js"></script>
-<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-<!-- Navigation -->
-<div class="title-bar" data-responsive-toggle="Project2Do" data-hide-for="small">
-  <div class="show-for-large large-3 columns">
-    <img src="https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/810/f/weather.jpg" alt="DarkSKy">
-  </div>
-  <button class="menu-icon" type="button" data-toggle></button>
-  <div class="title-bar-title">Menu</div>
-</div>
-​
-<div class="top-bar" id="SignOut">
 
-  <div class="top-bar-left">
-    <ul class="menu" data-responsive-menu="accordion">
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>
-        <a class="button" id="logoutButton">Log Out
-          <div class="g-signin2" data-onsuccess="onSignIn">
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-</div>
-<!-- /Navigation -->
-<br>
-
-<div class="row">
-  <div class="show-for-large large-3 columns">
-    <img src="https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/810/f/weather.jpg" alt="DarkDSKy">
-  </div>
-</div>
-<div class="medium-7 large-6 columns">
-  <img src="/images/project.png" width="500" ; height="200">
-  <p class="subheader">Welcome, {{ user.first}} Please check the weather and choose a task below!</p>
-
-  <button class="button">Show All Tasks</button>
-</div>
-​
-<div class="medium-5 large-3 columns">
-  <div class="callout secondary">
-    <form>
-      <div class="row">
-        <div class="small-12 columns">
-          <label>ADD A NEW TASK
-            <input type="text" placeholder="Describe the task">
-          </label>
-        </div>
-        <div class="small-12 columns">
-
-        </div>
-        <div class="small-12 columns">
-
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <a href="#">Category!</a>
-              <ul class="menu">
-                <li><a href="#">Indoor</a></li>
-                <li><a href="#">Outdoor</a></li>
-                <!-- ... -->
-              </ul>
-            </li>
-          </ul>
-          <br>
-          <button type="submit" class="button">ADD!</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-​
-</div>
-​
-<div class="row column">
-  <hr>
-</div>
-
-<div class="container">
-  <div class="row column">
-    ​ ​
-    <div class="row small-up-3 medium-up-2 large-up-3">
-      <p class="lead">Tasks</p>
-
-      <div class="column">
-        <div class="callout">
-          <div>
-            <p>To Do</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="column">
-        <div class="callout">
-          <p>In Progress </p>
-
-        </div>
-      </div>
-      <div class="column">
-        <div class="callout">
-          <p>Done</p>
-
-        </div>
-      </div>
-      ​
-      ​
-    </div>
-  </div>
-  ​
-  <footer>
-    <div class="row expanded callout secondary">
-      <div class="small-12 large-1 columns">
-        <p class="lead"></p>
-        <ul class="menu vertical">
-
-      </div>
-      ​
-    </div>
+  <!-- Header row containing only Log Out button -->
+  <div class="container">
     <div class="row">
-  </footer>
-  <script>
-    $(document).foundation();
-  </script>
-    <script src="/js/index.js"></script>
+      <div class="col-md-4">
+        <div class="btn btn-outline-danger" data-onsuccess="onSignIn">Log Out</div>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <!-- Row for Main Logo -->
+  <div class="container">
+    <div class="row h-50">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center">
+          <!-- <img src="/images/project.png" width="210" ; height="100"></a> -->
+          <img src="project.png" width="210" ; height="100"></a>
+        </div>
+      </div>
+    </div>
+    <!-- ////MAIN container -->
+
+
+    <!-- Row for Add Task box and Submit button -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- <div class="card-deck mb-3 text-center"> -->
+            <div class="card-header">
+              <h4 class="card-title pricing-card-title">Add Task!</h4>
+                <label for="Add Task"></label>
+                <input type="Add Task" id="Add-Task" placeholder="">
+                   <input type="checkbox" aria-label="Checkbox for following text input">
+            </div>
+        </div>
+
+<!-- ////Middle part/// -->
+      <div class="col-md-4">
+        <p class="subheader">Welcome{{ user.first}}, Please check the weather and choose a task below!</p>
+      </div>
+<!-- ///end middle part/// -->
+
+
+      <div class="col-md-4">
+        <div class="card-header">
+            <span class="currently">
+                <span class="clear-night-icon-currently currently-icon swip">
+                  <img width="84" height="84" src="https://www.placecage.com/c/200/300" alt="clear-night Icon">
+                </span>
+                <span class="desc swap">
+                  <ul>
+                  <span class="summary swap">67˚&nbsp;Clear.</span>
+                  <span class="summary-high-low">
+                   
+                    <span><span class="high-low-label">Feels Like:&nbsp;</span><span class="feels-like-text">67˚</span></span>
+                    <span><span class="high-low-label">Low:&nbsp;</span><span class="low-temp-text">53˚</span></span>
+                    <span><span class="high-low-label">High:&nbsp;</span><span class="high-temp-text">79˚</span></span>
+                  </ul>
+                  </span>
+                </span>
+              </span>
+        </div>
+      </div>
+
+      <!-- <style>
+
+      .currently {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  </style> -->
+  <!-- /////CLOSE MAIN container//// -->
+  
+
+  <!-- EMPTY ROW -->
+  <div class="container">
+    <div class="col-md-12"> 
+       <p class="empty place"></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h2 class="card-title pricing-card-title">2 Do!</h1>
+        </div>
+        <div class="card-body">
+          <!-- <ul class="list-unstyled mt-3 mb-4"> -->
+            <label for="Add Task"></label>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">PlaceHolder</button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h2 class="card-title pricing-card-title">Doing!</h1>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>PlaceHolder</li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-primary">PlaceHolder</button>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h2 class="card-title pricing-card-title">Done!</h1>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4">
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-primary">PlaceHolder</button>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <footer class="footer">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        &copy; Copyright, UW Coding Bootcamp 2019
+      </p>
+    </footer>
+
+
+<!-- jQuery CDN -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
