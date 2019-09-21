@@ -1,4 +1,3 @@
-
 // Get references to page elements
 var registerForm = $("form.register");
 var firstName = $("input#firstName");
@@ -9,6 +8,38 @@ var password = $("input#password");
 var loginForm = $("form.login")
 var loginUsername = $("input#username")
 var loginPassword = $("input#password")
+
+var addTaskForm = $("form.addTask");
+var description = $("input#description");
+var indoor = $("#indoor")
+
+$("form.addTask").on("submit",function(event){
+  event.preventDefault();
+  if (indoor.is(":checked")) {
+    var boolean = false;
+  } else {
+    var boolean = true;
+  }
+  var taskData = {
+    description: description.val().trim(),
+    is_outdoor: boolean
+  };
+
+  if(!taskData.description){
+    return;
+  }
+  addTask(taskData.description, taskData.is_outdoor)
+  description.val("")
+})
+
+function addTask(desc,outdoor){
+  $.post("/api/tasks",{
+    description: desc,
+    is_outdoor: outdoor
+  }).then(function(data){
+    
+  })
+}
 
 registerForm.on("submit", function (event) {
   event.preventDefault();
