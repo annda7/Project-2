@@ -206,18 +206,40 @@ $(document).ready( function() {
    });
 });
 function getWeather(lat, long) {
-console.log(lat, long)
-//We need to ping the backend
-axios.get('/api/darksky/' + lat + '/' + long)
-.then(function(response){
-  console.log(response);
-  
-  $("#darksky2").html(response.data.currently.icon);
-  // return data.data.daily.icon;
-})
-.catch(function(err){
-  console.log(err);
-});
+  console.log(lat, long)
+  //We need to ping the backend
+  axios.get('/api/darksky/' + lat + '/' + long)
+    .then(function (result) {
+      console.log(result.data.currently.icon);
+      switch (result.data.currently.icon) {
+        case "clear-day":
+          $("#weatherDiv");
+          break;
+        case "clear-night":
+          $("#weatherDiv");
+          break;
+        case "rain":
+          $("#weatherDiv");
+          break;
+        case "snow":
+          $("#weatherDiv");
+          break;
+        case "sleet":
+          $("#weatherDiv");
+          break;
+        case "wind":
+          $("#weatherDiv");
+          break;
+        case "fog":
+          $("#weatherDiv");
+          break;
+        default:
+          $("#weatherDiv").html("It's crazy outside!")
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 
