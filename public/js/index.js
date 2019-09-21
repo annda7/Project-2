@@ -241,31 +241,43 @@ function getWeather(lat, long) {
   //We need to ping the backend
   axios.get('/api/darksky/' + lat + '/' + long)
     .then(function (result) {
+      console.log(result)
       console.log(result.data.currently.icon);
+      $("#temperature").html("Current Temperature: " + result.data.currently.temperature + "˚F");
+      $("#weatherSummary").html(result.data.currently.summary);
       switch (result.data.currently.icon) {
         case "clear-day":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/clear-day.png' alt='clear-day Icon'></img>");
           break;
         case "clear-night":
-          $("#weatherDiv");
+          $("weather-icon").html("<img src='images/clear-night.png' alt='clear-night Icon'></img>");
           break;
         case "rain":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/rain.png' alt='rain Icon'></img>");
           break;
         case "snow":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/snow.png' alt='snow Icon'></img>");
           break;
         case "sleet":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/sleet.png' alt='sleet Icon'></img>");
           break;
         case "wind":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/wind.png' alt='wind Icon'></img>");
           break;
         case "fog":
-          $("#weatherDiv");
+          $("#weather-icon").html("<img src='images/fog.png' alt='fog Icon'></img>");
+          break;
+        case "cloudy":
+          $("#weather-icon").html("<img src='images/cloudy.png' alt='cloudy Icon'></img>");
+          break;
+        case "partly-cloudy-day":
+          $("#weather-icon").html("<img src='images/partly-cloudy-day.png' alt='partly-cloudy-day Icon'></img>");
+          break;
+        case "partly-cloudy-night":
+          $("#weather-icon").html("<img src='images/partly-cloudy-night.png' alt='partly-cloudy-night Icon'></img>");
           break;
         default:
-          $("#weatherDiv").html("It's crazy outside!")
+          $("#weather-icon").html("<img src='images/monster.png' alt='monster Icon'></img>")
       }
     })
     .catch(function (err) {
