@@ -4,24 +4,24 @@
 <script src="/js/index.js"></script>
 
   <!-- Header row containing only Log Out button -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="btn btn-outline-danger" data-onsuccess="onSignIn">Log Out</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-end">
+        <div class="btn btn-outline-danger" id= "logoutButton" data-onsuccess="onSignIn">Log Out</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Row for Main Logo -->
-  <div class="container">
-    <div class="row h-50">
-      <div class="col-md-12">
-        <div class="d-flex justify-content-center">
-          <!-- <img src="/images/project.png" width="210" ; height="100"></a> -->
-          <img src="project.png" width="210" ; height="100"></a>
-        </div>
+  <!-- Row for Main Logo --><div class="container">
+  <div class="row h-50">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-center">
+        <img src="/images/logo.png" width="400" ; height="100"></a>
       </div>
     </div>
+  </div>
     <!-- ////MAIN container -->
 
 
@@ -54,7 +54,7 @@
 
 <!-- ////Middle part/// -->
       <div class="col-md-4">
-        <p class="subheader">Welcome{{ user.first}}, Please check the weather and choose a task below!</p>
+        <p class="subheader">Welcome {{user.first_name}}, Please check the weather and choose a task below!</p>
       </div>
 <!-- ///end middle part/// -->
 
@@ -92,54 +92,85 @@
   
 
   <!-- EMPTY ROW -->
-  <div class="container">
-    <div class="col-md-12"> 
-       <p class="empty place"></p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="card-deck mb-3 text-center">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h2 class="card-title pricing-card-title">2 Do!</h1>
+      <div class="container">
+        <div class="col-md-12">
+          <p class="empty place"></p>
         </div>
-        <div class="card-body">
-          <!-- <ul class="list-unstyled mt-3 mb-4"> -->
+      </div>
+
+      <div class="container">
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h2 class="card-title pricing-card-title">2 Do!</h2>
+            </div>
+            <div class="card-body">
+{{#each todo}}
             <label for="Add Task"></label>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">PlaceHolder</button>
+            <div class = "card" data-todo="{{this.id}}">
+              <div class="card-body">{{this.description}}</div>
+            </div> 
+            {{/each}}
+            </div>
+          </div>
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h2 class="card-title pricing-card-title">Doing!</h1>
+            </div>
+            <div class="card-body">
+              <!-- <ul class="list-unstyled mt-3 mb-4"> -->
+              <label for="Add Task"></label>
+              <div class="card">
+                <div class="card-body">
+                  1. Finishing Project 2
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  2. Do some stuff.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  3. Mow the lawn.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h2 class="card-title pricing-card-title">Done!</h1>
+            </div>
+            <div class="card-body">
+              <!-- <ul class="list-unstyled mt-3 mb-4"> -->
+              <label for="Add Task"></label>
+              <div class="card">
+                <div class="card-body">
+                  1. Go shopping
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  2. Do the dishes.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  3. Get a haricut.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h2 class="card-title pricing-card-title">Doing!</h1>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>PlaceHolder</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">PlaceHolder</button>
-        </div>
-      </div>
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h2 class="card-title pricing-card-title">Done!</h1>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mt-3 mb-4">
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">PlaceHolder</button>
-        </div>
-      </div>
-    </div>
 
-    <br>
+        <br>
 
-    <footer class="footer">
-      <div class="two-toned-footer-color"></div>
-      <p class="text-muted text-muted-footer text-center">
-        &copy; Copyright, UW Coding Bootcamp 2019
-      </p>
-    </footer>
+        <footer class="footer">
+          <div class="two-toned-footer-color"></div>
+          <p class="text-muted text-muted-footer text-center">
+            &copy; Copyright, UW Coding Bootcamp 2019
+          </p>
+        </footer>
 
 
 <!-- jQuery CDN -->
