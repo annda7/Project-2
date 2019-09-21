@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Mysql.2019",
+    "password": "root",
     "database": "toDoDB",
     "host": "localhost",
     "dialect": "mysql"

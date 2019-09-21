@@ -199,8 +199,33 @@ function getWeather(lat, long) {
   console.log(lat, long)
   //We need to ping the backend
   axios.get('/api/darksky/' + lat + '/' + long)
-    .then(function (data) {
-      console.log(data);
+    .then(function (result) {
+      console.log(result.data.daily.icon);
+      switch (result.data.daily.icon) {
+        case "clear-day":
+          $("#weatherDiv");
+          break;
+        case "clear-night":
+          $("#weatherDiv");
+          break;
+        case "rain":
+          $("#weatherDiv");
+          break;
+        case "snow":
+          $("#weatherDiv");
+          break;
+        case "sleet":
+          $("#weatherDiv");
+          break;
+        case "wind":
+          $("#weatherDiv");
+          break;
+        case "fog":
+          $("#weatherDiv");
+          break;
+        default:
+          $("#weatherDiv").html("It's crazy outside!")
+      }
     })
     .catch(function (err) {
       console.log(err);
