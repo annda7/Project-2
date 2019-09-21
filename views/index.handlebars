@@ -30,12 +30,26 @@
       <div class="row">
         <div class="col-md-4">
           <!-- <div class="card-deck mb-3 text-center"> -->
-            <div class="card-header">
-              <h4 class="card-title pricing-card-title">Add Task!</h4>
-                <label for="Add Task"></label>
-                <input type="Add Task" id="Add-Task" placeholder="">
-                   <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
+        <form class="card-header">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="description" class="form-control" id="description" placeholder="What do you have to do?">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inOutRadio" id="indoor" value="indoor">
+            <label class="form-check-label" for="indoor">
+              Indoor
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inOutRadio" id="outdoor" value="outdoor">
+            <label class="form-check-label" for="outdoor">
+              Outdoor
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
         </div>
 
 <!-- ////Middle part/// -->
